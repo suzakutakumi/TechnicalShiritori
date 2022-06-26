@@ -1,0 +1,22 @@
+<body>
+    <div id="rooms"></div>
+    <button onclick="create()">create room</button>
+    <script>
+        const rooms = document.getElementById("rooms")
+        const getRooms = () => {
+            fetch("/rooms").then((res) => res.json()).then((res) => {
+                console.log(res)
+            })
+        }
+        const create = () => {
+            fetch("/room",{
+                method:"POST",
+                headers:{},
+                body:""                
+            }).then((res) => res.json()).then((res) => {
+                console.log(res)
+            })
+        }
+        setInterval(getRooms,1000)
+    </script>
+</body>
